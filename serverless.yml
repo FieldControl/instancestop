@@ -1,0 +1,27 @@
+service: instancestop
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'prod'}
+  region: us-east-1
+  memorySize: 128
+  versionFunctions: false
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+      - ec2:DescribeInstances
+      - ec2:StopInstances
+      Resource: '*'
+
+functions:
+  stop-instances:
+    handler: src/index.handler
+    description: 'Instancestop is a simpler alternative to AWS Instance Scheduler to easily configure ec2/rds stop schedules'
+    timeout: 900
+    events:
+      - schedule:
+          name: instancestop-stop-ec2-evening
+          description: 'Instancestop AWS CloudWatch trigger to stop instances'
+          rate: cron(0 21 ? * * *) 
+          enabled: true
