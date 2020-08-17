@@ -1,11 +1,15 @@
 <div align="center">
   <h1>Instancestop</h1>
   <p>
-:stop_sign: Instancestop is a simpler alternative to AWS Instance Scheduler to easily configure ec2/rds stop schedules
+
+:stop_sign: Instancestop is a simpler alternative to [AWS Instance Scheduler](https://aws.amazon.com/solutions/implementations/instance-scheduler) to easily configure ec2 stop schedules
+
   </p>
   <p>
 
 ![Field Control ♥](https://img.shields.io/badge/Field%20Control-%20%20%20%20%20%20♥-blue.svg)
+![Continuous Integration](https://github.com/FieldControl/instancestop/workflows/Continuous%20Integration/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fa5803692ceef5c35479/maintainability)](https://codeclimate.com/github/FieldControl/instancestop/maintainability)
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
@@ -19,7 +23,9 @@
 
 ## Why
 
-Because somethings we forgot ec2 instances running, and it cost us money :money_with_wings:
+Because sometimes we forget ec2 instances running, and it cost us money :money_with_wings:
+
+<div align="center">💙</div>
 
 ## Usage
 
@@ -47,7 +53,7 @@ events:
   - schedule:
       name: instancestop-stop-ec2-evening
       description: 'Instancestop AWS CloudWatch trigger to stop instances'
-      rate: cron(0 21 ? * * *) #
+      rate: cron(0 21 ? * * *) # <--- use cron syntax 
       enabled: true
 ```
 
@@ -58,9 +64,7 @@ npm install -g serverless # if not installed
 sls deploy
 ```
 
-<div align="center">
-  <br/>
-</div>
+<div align="center">💙</div>
 
 ## Pull Requests
 
@@ -71,9 +75,7 @@ sls deploy
 - **One pull request per feature**. If you want to do more than one thing, send
   multiple pull requests.
 
-<div align="center">
-  <br/>
-</div>
+<div align="center">💙</div>
 
 ## License
 
